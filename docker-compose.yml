@@ -1,0 +1,25 @@
+services:
+  iris:
+    build:
+      context: .
+      args:
+        IMAGE: ${IRIS_IMAGE:-intersystems/irishealth-community:2026.2}
+    container_name: iris-wechat-gateway
+    restart: unless-stopped
+    environment:
+      - ISC_CPF_MERGE_FILE=/home/irisowner/dev/merge.cpf
+    ports:
+      - "1973:1972"
+      - "52774:52773"
+    volumes:
+      - ./:/home/irisowner/dev
+    healthcheck:
+      test: ["CMD", "bash", "/home/irisowner/dev/scripts/healthcheck.sh"]
+      interval: 30s
+      timeout: 20s
+      retries: 30
+      start_period: 40s
+# The local mock WeCom server used by the test suite is not part of this
+# repository; it is defined in local-only/docker-compose.mock.yml and merged in
+# by the e2e scripts:
+#   docker compose -f docker-compose.yml -f local-only/docker-compose.mock.yml up -d

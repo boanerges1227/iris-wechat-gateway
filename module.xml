@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="IRIS" version="26">
+  <Document name="iris-wechat-gateway.ZPM">
+    <Module>
+      <Name>iris-wechat-gateway</Name>
+      <Version>0.1.0</Version>
+      <Description>WeCom (Enterprise WeChat) outbound adapter for InterSystems IRIS Interoperability: application messages and group robot webhooks, with Business Operations and Outbound Adapters</Description>
+      <Packaging>module</Packaging>
+      <SourcesRoot>src</SourcesRoot>
+      <Resource Name="WeChat.PKG"/>
+      <Invoke Method="Install" Class="WeChat.Util.Setup"/>
+    </Module>
+  </Document>
+</Export>

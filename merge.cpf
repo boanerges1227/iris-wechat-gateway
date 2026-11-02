@@ -1,0 +1,7 @@
+[Actions]
+ModifyService:Name=%Service_CallIn,Enabled=1,AutheEnabled=48
+CreateResource:Name=%DB_WECHAT_DATA,Description="WECHAT_DATA database resource"
+CreateDatabase:Name=WECHAT_DATA,Directory=/usr/irissys/mgr/WECHAT_DATA,Resource=%DB_WECHAT_DATA
+CreateResource:Name=%DB_WECHAT_CODE,Description="WECHAT_CODE database resource"
+CreateDatabase:Name=WECHAT_CODE,Directory=/usr/irissys/mgr/WECHAT_CODE,Resource=%DB_WECHAT_CODE
+CreateNamespace:Name=WECHAT,Globals=WECHAT_DATA,Routines=WECHAT_CODE,Interop=1

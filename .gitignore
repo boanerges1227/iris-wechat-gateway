@@ -1,0 +1,19 @@
+# Local development assets, configuration, tests and internal records
+/local-only/
+/worklogs/
+/mock/
+/docs/
+PLAN.md
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+iris-main.log
+/data/
+mock/__pycache__/
+mock/.venv/
+__pycache__/
+*.pyc
+.vscode/
+node_modules/
