@@ -169,21 +169,7 @@ Oversized messages are rejected before sending and are not split. An accepted re
 - `45009`: no retry by default; inspect limits and throttle callers. `-1` uses bounded retries.
 - After the credential-failure threshold, token refresh is blocked for about one hour. Once configuration is corrected, an authorized operator may clear it earlier with `WeChat.Data.AccessToken.Reset(cacheKey)` using the appropriate cache key; avoid logging enterprise identifiers contained in the key.
 
-## 8. Tests and IPM
-
-If the development workspace retains `mock/` and `local-only/`, run:
-
-```bash
-bash local-only/scripts/e2e.sh --keep
-```
-
-The script builds and starts local IRIS and mock, runs the suites, and sends through the adapters directly. `--keep` leaves containers running. To clean up:
-
-```bash
-docker compose -f docker-compose.yml -f local-only/docker-compose.mock.yml down
-```
-
-The local test assets are not included in the public repository.
+## 8. IPM installation
 
 `module.xml` describes an IPM module. To load the source, use `zpm "load /path/to/iris-wechat-gateway"` using a project root path visible to the IRIS process. Check classes, credentials, TLS and Production in the target namespace afterwards.
 

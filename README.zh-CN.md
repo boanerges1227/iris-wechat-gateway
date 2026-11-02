@@ -169,21 +169,7 @@ if $system.Status.IsError(sc) do $system.Status.DisplayError(sc)
 - `45009`：默认不重试；核对调用频率并由调用方节流。`-1` 按设置进行有界重试。
 - 连续凭据失败达到阈值后 token 缓存熔断约一小时；可在修正配置后由具备权限的运维人员使用对应缓存键调用 `WeChat.Data.AccessToken.Reset(cacheKey)` 提前清除。不要记录缓存键中可能包含的企业信息。
 
-## 8. 测试与 IPM
-
-开发工作区若保留 `mock/` 和 `local-only/`，可执行：
-
-```bash
-bash local-only/scripts/e2e.sh --keep
-```
-
-脚本构建并启动本地 IRIS 和 mock，运行测试并直接通过 Adapter 向 mock 发送；`--keep` 保留容器。完成后可执行：
-
-```bash
-docker compose -f docker-compose.yml -f local-only/docker-compose.mock.yml down
-```
-
-公开仓库不包含上述本地测试资产。
+## 8. IPM 安装
 
 `module.xml` 描述 IPM 包。在目标 IRIS 中可从其可访问的源码目录执行 `zpm "load /path/to/iris-wechat-gateway"`，路径必须是 IRIS 进程可见的项目根目录。安装后在目标命名空间检查类、凭据、TLS 和 Production。
 
