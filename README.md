@@ -171,7 +171,21 @@ Oversized messages are rejected before sending and are not split. An accepted re
 
 ## 8. IPM installation
 
-`module.xml` describes an IPM module. To load the source, use `zpm "load /path/to/iris-wechat-gateway"` using a project root path visible to the IRIS process. Check classes, credentials, TLS and Production in the target namespace afterwards.
+The IPM package is named `iris-wechat-gateway`, and its package version is **0.1.0**. Run the following in the target IRIS namespace:
+
+```objectscript
+zpm "install iris-wechat-gateway"
+```
+
+If the namespace does not have a default package repository configured, first run `zpm "repo -reset-defaults"`, then repeat the install command. IPM must already be installed and enabled in IRIS.
+
+Alternatively, load the source from a project root visible to the IRIS process:
+
+```objectscript
+zpm "load /path/to/iris-wechat-gateway"
+```
+
+After installation, configure credentials and client TLS in the target namespace, check the Production, and start the demo Production as shown in section 2.
 
 ## References
 

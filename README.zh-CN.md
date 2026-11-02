@@ -171,7 +171,21 @@ if $system.Status.IsError(sc) do $system.Status.DisplayError(sc)
 
 ## 8. IPM 安装
 
-`module.xml` 描述 IPM 包。在目标 IRIS 中可从其可访问的源码目录执行 `zpm "load /path/to/iris-wechat-gateway"`，路径必须是 IRIS 进程可见的项目根目录。安装后在目标命名空间检查类、凭据、TLS 和 Production。
+IPM 包名为 `iris-wechat-gateway`，包版本为 **0.1.0**。在目标 IRIS 命名空间中执行：
+
+```objectscript
+zpm "install iris-wechat-gateway"
+```
+
+如果目标命名空间尚未配置默认包仓库，可先执行 `zpm "repo -reset-defaults"`，再运行安装命令。IPM 本身需要先在 IRIS 中安装并启用。
+
+也可从 IRIS 进程可访问的项目根目录加载源码：
+
+```objectscript
+zpm "load /path/to/iris-wechat-gateway"
+```
+
+安装后在目标命名空间配置凭据和客户端 TLS，检查 Production，并按第 2 节启动演示 Production。
 
 ## 参考
 
